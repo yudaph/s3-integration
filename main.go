@@ -29,7 +29,7 @@ func HandleUpload(w http.ResponseWriter, r *http.Request) {
 
 	// Upload file to S3
 	filename := "suffix_" + header.Filename
-	url, err := s3client.UploadFile(r.Context(), "qwera-upload-test", filename, file)
+	url, err := s3client.UploadFile(r.Context(), "bucket-name", filename, file)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
